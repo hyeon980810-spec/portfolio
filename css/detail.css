@@ -1,0 +1,235 @@
+/* ==========================================================================
+   Project detail page — layout/spacing/ratio/typography reference:
+   minimalissimo.com/articles/the-arlo-03-by-service-projects
+   Content flow reinterpreted per project spec (linear sections, not the
+   reference's two-column sticky layout). Loads on top of home.css, which
+   supplies tokens, header, footer, and the fixed nav capsule.
+   ========================================================================== */
+
+/* ---- Hero: title / category / year / short intro ---- */
+.mm-detail-hero {
+  padding: 1.5rem 1.5rem 2.5rem;
+  max-width: 48rem;
+}
+.mm-detail-meta {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .85rem;
+  color: var(--mm-muted);
+  margin-bottom: 1rem;
+}
+.mm-detail-title {
+  font-size: 2.4rem;
+  font-weight: 400;
+  letter-spacing: -.01em;
+  line-height: 1.15;
+  color: var(--mm-fg);
+  margin-bottom: 1rem;
+}
+.mm-detail-intro {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--mm-fg);
+}
+
+/* ---- Main image ---- */
+.mm-detail-media {
+  margin: 0 1.5rem 3rem;
+}
+
+/* ---- Reusable image figure(s) — single, or repeated for the image section ---- */
+.mm-detail-figure-block {
+  margin: 0 1.5rem 1.5rem;
+}
+.mm-detail-figure-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 0 1.5rem 1.5rem;
+}
+.mm-detail-figure {
+  aspect-ratio: 3 / 2;
+  background: var(--mm-card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mm-detail-figure span {
+  font-size: .85rem;
+  color: var(--mm-muted);
+}
+
+/* ---- Project description body ---- */
+.mm-detail-body {
+  margin: 0 1.5rem 4rem;
+  max-width: 48rem;
+}
+.mm-detail-body p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--mm-fg);
+  margin-bottom: 1.25rem;
+}
+.mm-detail-body p:last-child { margin-bottom: 0; }
+
+/* ==========================================================================
+   Project detail — two-column layout (v2).
+   Currently used by project-1.html only; project-2~5 still use the
+   .mm-detail-* linear layout above until they're migrated to this.
+   ========================================================================== */
+.mm-pd {
+  padding: 0 1.5rem;
+}
+
+.mm-pd-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+}
+.mm-pd-breadcrumb {
+  font-size: .85rem;
+  color: var(--mm-muted);
+}
+.mm-pd-breadcrumb a { color: var(--mm-muted); }
+.mm-pd-breadcrumb a:hover { color: var(--mm-fg); }
+.mm-pd-breadcrumb span { margin: 0 .35rem; }
+.mm-pd-breadcrumb .is-current { color: var(--mm-fg); }
+.mm-pd-date {
+  font-size: .85rem;
+  color: var(--mm-muted);
+  white-space: nowrap;
+}
+
+.mm-pd-columns {
+  display: flex;
+  align-items: flex-start;
+  gap: 2%;
+  padding-bottom: 4rem;
+}
+
+/* Left column: fixed-width image stack, each figure keeps its own ratio */
+.mm-pd-media {
+  flex: 0 0 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.mm-pd-figure {
+  width: 100%;
+  background: var(--mm-card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mm-pd-figure span {
+  font-size: .85rem;
+  color: var(--mm-muted);
+}
+/* Demo-only ratio modifiers for placeholders — delete once real <img>
+   elements (width:100%; height:auto;) replace these divs. */
+.mm-pd-figure.ratio-3-2 { aspect-ratio: 3 / 2; }
+.mm-pd-figure.ratio-4-5 { aspect-ratio: 4 / 5; }
+.mm-pd-figure.ratio-1-1 { aspect-ratio: 1 / 1; }
+.mm-pd-figure.ratio-16-9 { aspect-ratio: 16 / 9; }
+.mm-pd-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Right column: independent, sticky info panel */
+.mm-pd-info {
+  flex: 1 1 auto;
+  min-width: 0;
+  position: sticky;
+  top: 2rem;
+}
+.mm-pd-title {
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: -.01em;
+  line-height: 1.2;
+  color: var(--mm-fg);
+  margin-bottom: 1rem;
+}
+.mm-pd-intro {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--mm-fg);
+  margin-bottom: 1.5rem;
+}
+.mm-pd-body p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--mm-fg);
+  margin-bottom: 1rem;
+}
+.mm-pd-body p:last-child { margin-bottom: 0; }
+
+.mm-pd-divider {
+  border: none;
+  border-top: 1px solid var(--mm-border);
+  margin: 1.5rem 0;
+}
+
+.mm-pd-meta {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+.mm-pd-meta div {
+  display: flex;
+  gap: 1.5rem;
+  font-size: .95rem;
+}
+.mm-pd-meta dt {
+  flex: 0 0 6rem;
+  color: var(--mm-muted);
+}
+.mm-pd-meta dd { color: var(--mm-fg); }
+.mm-pd-meta dd a:hover { text-decoration: underline; }
+
+/* ---- Related projects ("More like this") — reuses .mm-grid/.mm-card
+   from home.css (same image ratio, gap, caption, hover-opacity system) ---- */
+.mm-related {
+  padding-top: 5rem;
+}
+.mm-related-title {
+  margin: 0 1.5rem 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--mm-fg);
+}
+
+/* ---- Previous / next project pager ---- */
+.mm-pager {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 4rem 1.5rem 6rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--mm-border);
+}
+.mm-pager-link {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+.mm-pager-next {
+  text-align: right;
+  align-items: flex-end;
+  margin-left: auto;
+}
+.mm-pager-label {
+  font-size: .8rem;
+  color: var(--mm-muted);
+}
+.mm-pager-title {
+  font-size: 1.1rem;
+  color: var(--mm-fg);
+}
+.mm-pager-link:hover .mm-pager-title { text-decoration: underline; }

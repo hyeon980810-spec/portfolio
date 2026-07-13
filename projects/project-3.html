@@ -6,68 +6,109 @@
   <title>[프로젝트 3 제목] — [이름]</title>
   <meta name="description" content="[프로젝트 3 한 줄 소개가 들어갈 자리입니다.]" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230033ff'/%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/home.css" />
+  <link rel="stylesheet" href="../css/detail.css" />
 </head>
 <body>
 
-  <header class="cover" id="cover">
-    <div class="block block-top">
-      <h1 class="title-xl">[이름]</h1>
-    </div>
-    <div class="block block-bottom">
-      <div class="gradient"></div>
-    </div>
+  <header class="mm-header">
+    <a class="mm-logo" href="../index.html">[이름]</a>
   </header>
 
-  <nav class="main-nav">
-    <span class="brand text-s">[이름]</span>
-    <ol>
-      <li class="nav-item"><a href="../index.html#about"><span class="index">01</span><span class="title">About</span></a></li>
-      <li class="nav-item active"><a href="../index.html#projects"><span class="index">02</span><span class="title">Projects</span></a></li>
-      <li class="nav-item"><a href="../index.html#contact"><span class="index">03</span><span class="title">Contact</span></a></li>
-    </ol>
+  <section class="mm-detail-hero">
+    <p class="mm-detail-meta"><span>[카테고리]</span><span>·</span><span>[연도]</span></p>
+    <h1 class="mm-detail-title">[프로젝트 3 제목]</h1>
+    <p class="mm-detail-intro">[프로젝트 3 한 줄 소개가 들어갈 자리입니다.]</p>
+  </section>
+
+  <section class="mm-detail-media">
+    <div class="mm-detail-figure"><span>메인 이미지 자리</span></div>
+  </section>
+
+  <section class="mm-detail-body">
+    <p>[프로젝트 설명 첫 번째 문단이 들어갈 자리입니다. 배경과 문제 정의를 자유롭게 작성하세요.]</p>
+    <p>[프로젝트 설명 두 번째 문단이 들어갈 자리입니다. 접근 방식과 진행 과정을 작성하세요.]</p>
+    <p>[프로젝트 설명 세 번째 문단이 들어갈 자리입니다. 결과와 배운 점을 작성하세요.]</p>
+  </section>
+
+  <div class="mm-detail-figure-block">
+    <div class="mm-detail-figure"><span>이미지 자리</span></div>
+  </div>
+
+  <div class="mm-detail-figure-grid">
+    <div class="mm-detail-figure"><span>이미지 자리</span></div>
+    <div class="mm-detail-figure"><span>이미지 자리</span></div>
+  </div>
+
+  <div class="mm-detail-figure-block">
+    <div class="mm-detail-figure"><span>이미지 자리</span></div>
+  </div>
+
+  <nav class="mm-pager">
+    <a class="mm-pager-link mm-pager-prev" href="project-2.html">
+      <span class="mm-pager-label">Previous Project</span>
+      <span class="mm-pager-title">[프로젝트 2 제목]</span>
+    </a>
+    <a class="mm-pager-link mm-pager-next" href="project-4.html">
+      <span class="mm-pager-label">Next Project</span>
+      <span class="mm-pager-title">[프로젝트 4 제목]</span>
+    </a>
   </nav>
 
-  <main class="container">
-
-    <header class="project-header">
-      <span class="index text-s">03</span>
-      <h1 class="title-l">[프로젝트 3 제목]</h1>
-      <dl class="project-meta text-s">
-        <div>
-          <dt class="uc">역할</dt>
-          <dd>[역할 입력 예정]</dd>
+  <footer class="mm-footer">
+    <div class="mm-footer-top">
+      <div class="mm-footer-spacer"></div>
+      <div class="mm-footer-main">
+        <div class="mm-footer-newsletter">
+          <p class="mm-footer-lead">[뉴스레터 소개 문장이 들어갈 자리입니다. 짧고 간결하게 작성하세요.]</p>
+          <form class="mm-footer-form" onsubmit="return false;">
+            <input class="mm-footer-input" type="text" name="name" placeholder="Name" />
+            <input class="mm-footer-input" type="email" name="email" placeholder="Email address" />
+            <button class="mm-footer-submit" type="submit">Subscribe</button>
+          </form>
+          <p class="mm-footer-note">[개인정보 관련 안내 문구가 들어갈 자리입니다. 구독 동의, 수신 거부 방법, 개인정보 보호 방침 등을 안내하세요.]</p>
         </div>
-        <div>
-          <dt class="uc">기술</dt>
-          <dd>[기술 스택 입력 예정]</dd>
-        </div>
-        <div>
-          <dt class="uc">기간</dt>
-          <dd>[연도/기간 입력 예정]</dd>
-        </div>
-        <div>
-          <dt class="uc">링크</dt>
-          <dd><a href="#">[프로젝트 링크]</a></dd>
-        </div>
-      </dl>
-    </header>
 
-    <section class="project-content text-m">
-      <div class="image-placeholder">이미지 자리 (추후 교체)</div>
-      <p>[프로젝트 설명 문단이 들어갈 자리입니다. 배경, 문제 정의, 접근 방식 등을 자유롭게 작성하세요.]</p>
-      <div class="image-placeholder">이미지 자리 (추후 교체)</div>
-      <p>[추가 설명이 필요하면 이곳에 작성하세요.]</p>
-    </section>
+        <nav class="mm-footer-nav" aria-label="Footer navigation">
+          <div class="mm-footer-col">
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+          </div>
+          <div class="mm-footer-col">
+            <a href="#">Instagram</a>
+            <a href="#">X / Twitter</a>
+            <a href="#">Pinterest</a>
+          </div>
+        </nav>
+      </div>
+    </div>
 
-    <nav class="project-pager text-s">
-      <a class="prev" href="project-2.html">← 이전 프로젝트</a>
-      <a class="home" href="../index.html#projects">전체 프로젝트</a>
-      <a class="next" href="project-4.html">다음 프로젝트 →</a>
-    </nav>
+    <div class="mm-footer-bottom">
+      <span class="mm-footer-copy">© 2026 [이름]</span>
+      <span class="mm-footer-legal">
+        <a href="#">Terms</a>
+        <a href="#">Legal Notice</a>
+      </span>
+    </div>
+  </footer>
 
-  </main>
+  <nav class="mm-nav-capsule" id="mmNav">
+    <button class="mm-nav-search" type="button" aria-label="검색">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/></svg>
+    </button>
+    <span class="mm-nav-placeholder">Search</span>
+    <button class="mm-nav-menu" type="button" id="mmMenuToggle" aria-label="메뉴" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/></svg>
+    </button>
+  </nav>
 
-  <script src="../js/main.js"></script>
+  <div class="mm-nav-menu-panel" id="mmMenuPanel" hidden>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#projects">Work</a>
+    <a href="../index.html#archive">Archive</a>
+    <a href="../index.html#contact">Contact</a>
+  </div>
+
+  <script src="../js/home.js"></script>
 </body>
 </html>
