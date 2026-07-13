@@ -37,6 +37,38 @@ img { max-width: 100%; display: block; }
   letter-spacing: -0.01em;
 }
 
+/* ---- Visual slider (placeholder-only, not linked to project data) ---- */
+.mm-visual-slider {
+  margin-bottom: 3rem;
+}
+.mm-visual-track {
+  display: flex;
+  gap: 1rem;
+  padding: 0 1.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+}
+.mm-visual-track::-webkit-scrollbar { display: none; }
+.mm-visual-track.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+.mm-visual-item {
+  flex: 0 0 35%;
+  aspect-ratio: 2 / 3;
+  background: var(--mm-card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mm-visual-item span {
+  font-size: .85rem;
+  color: var(--mm-muted);
+}
+
 /* ---- Hero ---- */
 .mm-hero {
   padding: 0 1.5rem 3rem var(--mm-rail);
