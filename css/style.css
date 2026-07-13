@@ -51,7 +51,7 @@ button { font: inherit; background: none; border: none; cursor: pointer; color: 
 
 /* ---- typography scale ---- */
 h1, h2, h3 { font-weight: 500; }
-.title-xl { font-size: 8rem;   line-height: .95em;  letter-spacing: -.04em; }
+.title-xl { font-size: 4.5rem; line-height: .95em;  letter-spacing: -.04em; }
 .title-l  { font-size: 4rem;   line-height: 1.05em; letter-spacing: -.03em; }
 .title-m  { font-size: 2.4rem; line-height: 1.1em;  letter-spacing: -.02em; }
 .title-s  { font-size: 1.2rem; line-height: 1.1em;  letter-spacing: -.01em; }
@@ -61,6 +61,8 @@ h1, h2, h3 { font-weight: 500; }
 .text-s   { font-size: 1rem;   line-height: 1.4em; }
 .uc { text-transform: uppercase; }
 .muted { color: var(--muted); }
+
+#cover .title-xl, .main-nav .brand { font-family: Helvetica, 'Helvetica Neue', sans-serif; }
 
 @media screen and (max-width: 800px) {
   .title-xl { font-size: 3.2rem; }
@@ -159,6 +161,160 @@ h1, h2, h3 { font-weight: 500; }
 }
 
 /* ==========================================================================
+   Hero — home page only: left cover half + right project-list half,
+   split-screen intro that expands the selected project in place
+   ========================================================================== */
+#hero {
+  display: flex;
+  min-height: 100vh;
+}
+
+#hero .cover {
+  position: static;
+  z-index: auto;
+  flex: 1 1 43%;
+  min-width: 0;
+  width: auto;
+  height: auto;
+  cursor: default;
+  transform: none;
+  transition: flex-basis .6s ease-in-out;
+}
+#hero .cover:hover,
+#hero .cover.expanded,
+#hero .cover.expanded:hover { transform: none; }
+#hero .cover .block-top {
+  flex: 1;
+  height: auto;
+}
+#hero .cover.expanded .block-top { height: auto; }
+
+.hero-projects {
+  flex: 1 1 57%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 4rem 3rem;
+  overflow-y: auto;
+  transition: flex-basis .6s ease-in-out;
+}
+
+/* PROJECTS open: right panel expands leftward to ~96%, cover shrinks to a thin sliver */
+#hero.projects-open .cover { flex-basis: 4%; }
+#hero.projects-open .hero-projects { flex-basis: 96%; }
+#categoryList > li {
+  margin: 0 -4rem;
+  border-bottom-color: var(--accent);
+  transition: background-color .3s ease;
+}
+#categoryList > li.active > .content { max-height: 34rem; padding: 0 4rem 1.8rem; }
+
+#categoryList > li:first-child { border-top: none; }
+
+#categoryList > li > header {
+  height: 66px;
+  align-items: center;
+  padding: 0 4rem;
+  gap: 2rem;
+  transition: background-color .3s ease;
+}
+#categoryList > li > header .index,
+#categoryList > li > header .name {
+  font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 30pt;
+  font-weight: 400;
+  color: var(--accent);
+  transition: color .3s ease;
+}
+#categoryList > li > header .name {
+  line-height: 1em;
+  letter-spacing: -.02em;
+}
+#categoryList > li:not(.active) > header:hover {
+  background: var(--accent);
+}
+#categoryList > li:not(.active) > header:hover .index,
+#categoryList > li:not(.active) > header:hover .name {
+  color: var(--light);
+}
+
+/* PROJECTS — full-bleed blue expand, left-to-right reveal (embassyofinternet.org/ambassadors) */
+#projects {
+  transition: background-color .5s ease-in-out, margin .5s ease-in-out;
+}
+#projects.active {
+  background: var(--accent);
+  border-bottom-color: rgba(244, 244, 240, .3);
+}
+#projects > header {
+  transition: background-color .5s ease-in-out, color .5s ease-in-out, padding .5s ease-in-out;
+}
+#projects.active > header .index,
+#projects.active > header .name { color: var(--light); }
+
+#projects > .content {
+  transition: max-height .5s ease-in-out, padding .5s ease-in-out;
+}
+#projects.active > .content {
+  padding: 0 4rem 2.4rem;
+  max-height: 48rem;
+}
+
+#projectList > li { border-bottom: 1px solid rgba(244, 244, 240, .3); }
+#projectList > li:first-child { border-top: 1px solid rgba(244, 244, 240, .3); }
+#projectList > li > header { padding: 2rem 0; gap: 1.5rem; }
+#projectList > li > header .index,
+#projectList > li > header .name,
+#projectList > li > header .status,
+#projectList > li > header .year {
+  font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--light);
+}
+#projectList > li > header .index { flex: 0 0 3rem; color: rgba(244, 244, 240, .6); font-size: 1.3rem; }
+#projectList > li > header .name {
+  flex: 1 1 auto;
+  font-size: 2.6rem;
+  line-height: 1.05em;
+  letter-spacing: -.02em;
+  font-weight: 500;
+}
+#projectList > li > header:hover .name { color: var(--light); }
+#projectList > li > header .status,
+#projectList > li > header .year {
+  flex: 0 0 auto;
+  font-size: 1rem;
+  color: rgba(244, 244, 240, .75);
+  text-align: right;
+}
+#projectList > li > header .year { min-width: 4.5rem; }
+
+#projectList > li .content p { color: rgba(244, 244, 240, .85); }
+#projectList > li .content .project-link { color: var(--light); }
+#projectList > li .content .project-link:hover { border-bottom-color: var(--light); }
+
+@media screen and (max-width: 1080px) {
+  #hero { flex-direction: column; min-height: auto; }
+  #hero .cover,
+  #hero.projects-open .cover { flex: none; height: 14rem; }
+  #hero.projects-open .hero-projects { flex-basis: auto; }
+  #hero .cover .block-top { align-items: center; background: var(--accent); }
+  #hero .cover .block-top h1 { font-size: 3.2rem; padding: .1em .12em .18em; }
+  .hero-projects { flex: none; padding: 0 1.2rem 2.4rem; }
+  #categoryList > li { margin: 0 -1.2rem; }
+  #categoryList > li.active > .content { padding: 0 1.2rem 1.6rem; }
+  #categoryList > li > header { padding: 0 1.2rem; gap: 1.2rem; }
+  #categoryList > li > header .name,
+  #categoryList > li > header .index { font-size: 2rem; }
+
+  #projects.active > .content { max-height: 42rem; }
+  #projectList > li > header { padding: 1.4rem 0; }
+  #projectList > li > header .name { font-size: 1.6rem; }
+  #projectList > li > header .index { font-size: 1rem; }
+  #projectList > li > header .status,
+  #projectList > li > header .year { font-size: .85rem; }
+}
+
+/* ==========================================================================
    Nav — fixed top bar, shared by every page
    ========================================================================== */
 .main-nav {
@@ -198,8 +354,6 @@ h1, h2, h3 { font-weight: 500; }
   padding: calc(var(--nav-height) + 3rem) 4rem 6rem calc(var(--cover-slid) + 4rem);
   min-height: 100vh;
 }
-.section { padding: 3rem 0; border-bottom: 1px solid var(--border); }
-.section:last-of-type { border-bottom: none; }
 
 @media screen and (max-width: 1080px) {
   .container { padding: 3rem 1.2rem 4rem; }
@@ -222,7 +376,8 @@ h1, h2, h3 { font-weight: 500; }
 }
 .numbered-list > li > header .index { flex: 0 0 3rem; color: var(--muted); }
 .numbered-list > li > header .name { flex: 1 1 auto; }
-.numbered-list > li > header .info { flex: 0 0 auto; color: var(--muted); text-align: right; }
+.numbered-list > li > header .status,
+.numbered-list > li > header .year { flex: 0 0 auto; color: var(--muted); text-align: right; }
 .numbered-list > li > header:hover .name { color: var(--accent); }
 
 .numbered-list > li .content {
@@ -230,7 +385,7 @@ h1, h2, h3 { font-weight: 500; }
   padding: 0 .2rem;
   transition: max-height .35s ease, padding .35s ease;
 }
-.numbered-list > li.active .content {
+.numbered-list > li.active > .content {
   max-height: 20rem;
   padding: 0 .2rem 1.6rem;
 }
@@ -240,7 +395,8 @@ h1, h2, h3 { font-weight: 500; }
 
 @media screen and (max-width: 640px) {
   .numbered-list > li > header { flex-wrap: wrap; }
-  .numbered-list > li > header .info { flex-basis: 100%; text-align: left; padding-left: 4.5rem; }
+  .numbered-list > li > header .status,
+  .numbered-list > li > header .year { flex-basis: 100%; text-align: left; padding-left: 4.5rem; }
 }
 
 /* ==========================================================================
