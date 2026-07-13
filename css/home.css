@@ -1,0 +1,138 @@
+/* ==========================================================================
+   Home — minimalissimo.com reference: header, fixed search/menu capsule,
+   indented intro paragraph, edge-to-edge 3-col project grid.
+   ========================================================================== */
+
+:root {
+  --mm-bg: #ffffff;
+  --mm-fg: #121212;
+  --mm-muted: #8c8c8c;
+  --mm-border: #e4e4e4;
+  --mm-card-bg: #eeeeee;
+  --mm-gap: 1rem;
+  --mm-margin: 1.5rem;
+  --mm-rail: 26rem;
+  --mm-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+html { font-size: 16px; }
+body {
+  font-family: var(--mm-font);
+  background: var(--mm-bg);
+  color: var(--mm-fg);
+  line-height: 1.3;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; background: none; border: none; cursor: pointer; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ---- Header ---- */
+.mm-header {
+  padding: 1.5rem 1.5rem 2.5rem;
+}
+.mm-logo {
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* ---- Hero ---- */
+.mm-hero {
+  padding: 0 1.5rem 3rem var(--mm-rail);
+  max-width: calc(46rem + var(--mm-rail));
+}
+.mm-hero p {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  font-weight: 400;
+  color: var(--mm-fg);
+}
+
+/* ---- Project grid ---- */
+.mm-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--mm-gap);
+  margin: 0 var(--mm-margin) 6rem;
+}
+.mm-card { display: block; }
+.mm-card-media {
+  aspect-ratio: 3 / 2;
+  background: var(--mm-card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity .2s ease;
+}
+.mm-card-media span {
+  font-size: .8rem;
+  color: var(--mm-muted);
+}
+.mm-card:hover .mm-card-media { opacity: .85; }
+.mm-card-caption {
+  padding-top: .75rem;
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+.mm-card-title {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--mm-fg);
+}
+.mm-card-meta {
+  font-size: .85rem;
+  color: var(--mm-muted);
+}
+
+/* ---- Fixed search / menu capsule ---- */
+.mm-nav-capsule {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  min-width: 26rem;
+  height: 3rem;
+  padding: 0 1.1rem;
+  background: var(--mm-bg);
+  border: 1px solid var(--mm-border);
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+}
+.mm-nav-capsule svg { width: 18px; height: 18px; flex: 0 0 auto; }
+.mm-nav-search { display: flex; align-items: center; }
+.mm-nav-placeholder {
+  flex: 1 1 auto;
+  font-size: .95rem;
+  color: var(--mm-muted);
+  text-align: left;
+}
+.mm-nav-menu { display: flex; align-items: center; }
+
+.mm-nav-menu-panel {
+  position: fixed;
+  bottom: 5.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  min-width: 12rem;
+  background: var(--mm-bg);
+  border: 1px solid var(--mm-border);
+  border-radius: 1rem;
+  padding: .5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+}
+.mm-nav-menu-panel[hidden] { display: none; }
+.mm-nav-menu-panel a {
+  display: block;
+  padding: .6rem .8rem;
+  font-size: .95rem;
+  border-radius: .5rem;
+}
+.mm-nav-menu-panel a:hover { background: var(--mm-card-bg); }
