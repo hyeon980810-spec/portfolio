@@ -3,74 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Hyehyeon — Portfolio</title>
-  <meta name="description" content="[한 줄 소개가 들어갈 자리입니다.]" />
+  <title>Contact — Hyehyeon</title>
+  <meta name="description" content="[연락처 안내 문구가 들어갈 자리입니다.]" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230033ff'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/contact.css" />
 </head>
 <body>
 
-  <div class="mm-hero-row">
-    <header class="mm-header">
-      <a class="mm-logo" href="index.html">Hyehyeon</a>
-    </header>
-
-    <section class="mm-visual-slider" aria-label="비주얼 슬라이더">
-      <div class="mm-visual-track" id="mmVisualTrack">
-        <div class="mm-visual-item"><span>Visual 01</span></div>
-        <div class="mm-visual-item"><span>Visual 02</span></div>
-        <div class="mm-visual-item"><span>Visual 03</span></div>
-        <div class="mm-visual-item"><span>Visual 04</span></div>
-      </div>
-    </section>
+  <div class="mm-contact-top">
+    <p class="mm-contact-breadcrumb">
+      <a href="index.html">Hyehyeon</a>
+      <span>/</span>
+      <span class="is-current">Contact</span>
+    </p>
   </div>
 
-  <section class="mm-hero">
-    <p>Brand Experience Designer<br>Creating thoughtful visual systems<br>across brand, digital, and space.<br>Selected work and ongoing experiments.</p>
-  </section>
+  <main>
+    <div class="mm-contact-grid">
+      <h1 class="mm-contact-heading">[연락 방법과 협업 제안을 환영한다는 소개 문장이 들어갈 자리입니다.]</h1>
+    </div>
 
-  <main class="mm-grid" id="projectList">
+    <div class="mm-contact-grid">
+      <p class="mm-contact-copy">[일반 문의, 협업 제안, 채용 관련 안내 문구가 들어갈 자리입니다. 자세한 내용은 아래 이메일로 편하게 연락해 주세요.]</p>
+    </div>
 
-    <a class="mm-card" href="projects/project-1.html">
-      <div class="mm-card-media"><span>이미지 자리</span></div>
-      <div class="mm-card-caption">
-        <span class="mm-card-title">[프로젝트 1 제목]</span>
-        <span class="mm-card-meta">[카테고리] · [연도]</span>
+    <div class="mm-contact-grid">
+      <div class="mm-contact-info">
+        <div class="mm-contact-block">
+          <span class="mm-contact-label">Email</span>
+          <p><a href="mailto:contact@example.com">contact@example.com</a></p>
+        </div>
+        <div class="mm-contact-block">
+          <span class="mm-contact-label">Social</span>
+          <ul class="mm-contact-social">
+            <li><a href="#" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">Behance</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">Pinterest</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">Github</a></li>
+          </ul>
+        </div>
       </div>
-    </a>
-
-    <a class="mm-card" href="projects/project-2.html">
-      <div class="mm-card-media"><span>이미지 자리</span></div>
-      <div class="mm-card-caption">
-        <span class="mm-card-title">[프로젝트 2 제목]</span>
-        <span class="mm-card-meta">[카테고리] · [연도]</span>
-      </div>
-    </a>
-
-    <a class="mm-card" href="projects/project-3.html">
-      <div class="mm-card-media"><span>이미지 자리</span></div>
-      <div class="mm-card-caption">
-        <span class="mm-card-title">[프로젝트 3 제목]</span>
-        <span class="mm-card-meta">[카테고리] · [연도]</span>
-      </div>
-    </a>
-
-    <a class="mm-card" href="projects/project-4.html">
-      <div class="mm-card-media"><span>이미지 자리</span></div>
-      <div class="mm-card-caption">
-        <span class="mm-card-title">[프로젝트 4 제목]</span>
-        <span class="mm-card-meta">[카테고리] · [연도]</span>
-      </div>
-    </a>
-
-    <a class="mm-card" href="projects/project-5.html">
-      <div class="mm-card-media"><span>이미지 자리</span></div>
-      <div class="mm-card-caption">
-        <span class="mm-card-title">[프로젝트 5 제목]</span>
-        <span class="mm-card-meta">[카테고리] · [연도]</span>
-      </div>
-    </a>
-
+    </div>
   </main>
 
   <footer class="mm-footer">
@@ -90,7 +64,7 @@
         <nav class="mm-footer-nav" aria-label="Footer navigation">
           <div class="mm-footer-col">
             <a href="#">About</a>
-            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="is-active" aria-current="page">Contact</a>
           </div>
           <div class="mm-footer-col">
             <a href="#">Instagram</a>
@@ -121,10 +95,10 @@
   </nav>
 
   <div class="mm-nav-menu-panel" id="mmMenuPanel" hidden>
-    <a href="#about">About</a>
-    <a href="#projects">Work</a>
-    <a href="#archive">Archive</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#projects">Work</a>
+    <a href="index.html#archive">Archive</a>
+    <a href="contact.html" class="is-active" aria-current="page">Contact</a>
   </div>
 
   <script src="js/home.js"></script>

@@ -99,6 +99,13 @@ img { max-width: 100%; display: block; }
   gap: var(--mm-gap);
   margin: 0 var(--mm-margin) 6rem;
 }
+/* Home project grid only (targets index.html's #projectList so the
+   "More like this" .mm-grid on project detail pages stays full-bleed).
+   Equal fixed left/right gutter — no max-width cap, so cards stay as
+   large as the viewport allows instead of shrinking the whole grid. */
+#projectList {
+  margin: 0 6rem 6rem;
+}
 .mm-card { display: block; }
 .mm-card-media {
   aspect-ratio: 3 / 2;

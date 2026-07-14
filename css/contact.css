@@ -1,0 +1,91 @@
+/* ==========================================================================
+   Contact page — layout reference: minimalissimo.com/contact
+   Breadcrumb header (same pattern as project detail pages) + 12-column
+   grid content blocks. Loads on top of home.css, which supplies tokens,
+   footer, and the fixed nav capsule.
+   ========================================================================== */
+
+.mm-contact-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+.mm-contact-breadcrumb {
+  font-size: .85rem;
+  color: var(--mm-muted);
+}
+.mm-contact-breadcrumb a { color: var(--mm-muted); }
+.mm-contact-breadcrumb a:hover { color: var(--mm-fg); }
+.mm-contact-breadcrumb span { margin: 0 .35rem; }
+.mm-contact-breadcrumb .is-current { color: var(--mm-fg); }
+
+.mm-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--mm-gap);
+  margin: 0 var(--mm-margin);
+}
+
+.mm-contact-heading {
+  grid-column: span 12;
+  padding-top: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--mm-fg);
+}
+
+.mm-contact-copy {
+  grid-column: span 12;
+  margin-bottom: 4rem;
+  max-width: 34rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--mm-fg);
+}
+
+.mm-contact-info {
+  grid-column: span 12;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-bottom: 6rem;
+}
+
+.mm-contact-label {
+  display: block;
+  margin-bottom: .5rem;
+  font-size: .85rem;
+  color: var(--mm-muted);
+}
+
+.mm-contact-block a {
+  font-size: 1rem;
+  color: var(--mm-fg);
+  transition: color .15s ease;
+}
+.mm-contact-block a:hover { color: var(--mm-muted); }
+
+.mm-contact-social {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+
+@media (min-width: 64rem) {
+  .mm-contact-heading { grid-column: span 8; }
+  .mm-contact-copy,
+  .mm-contact-info { grid-column: span 6; }
+}
+
+/* ---- Active menu state (Contact page is current) ---- */
+.mm-footer-col a.is-active,
+.mm-nav-menu-panel a.is-active {
+  color: var(--mm-fg);
+  font-weight: 500;
+}
