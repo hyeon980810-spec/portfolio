@@ -10,7 +10,7 @@
   align-items: baseline;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 1.5rem;
+  padding: 1.5rem var(--mm-margin);
 }
 .mm-contact-breadcrumb {
   font-size: .85rem;
@@ -88,4 +88,21 @@
 .mm-nav-menu-panel a.is-active {
   color: var(--mm-fg);
   font-weight: 500;
+}
+
+/* ==========================================================================
+   Responsive — mobile (<=768px), small mobile (<=480px).
+   The 12-col grid above is already mobile-first (span 12 by default,
+   split into 8/6 only at >=1024px), so no column changes are needed here
+   — just tightening the gutter/spacing to match the rest of the site.
+   --mm-margin is redeclared in home.css per breakpoint.
+   ========================================================================== */
+@media (max-width: 768px) {
+  .mm-contact-top { padding: 1.25rem var(--mm-margin); }
+  .mm-contact-copy { margin-bottom: 2.5rem; }
+  .mm-contact-info { padding-bottom: 4rem; }
+}
+
+@media (max-width: 480px) {
+  .mm-contact-top { padding: 1rem var(--mm-margin); }
 }

@@ -74,12 +74,10 @@
 .mm-detail-body p:last-child { margin-bottom: 0; }
 
 /* ==========================================================================
-   Project detail — two-column layout (v2).
-   Currently used by project-1.html only; project-2~5 still use the
-   .mm-detail-* linear layout above until they're migrated to this.
+   Project detail — two-column layout, used by all project-N.html pages.
    ========================================================================== */
 .mm-pd {
-  padding: 0 1.5rem;
+  padding: 0 var(--mm-margin);
 }
 
 .mm-pd-top {
@@ -198,7 +196,7 @@
   padding-top: 5rem;
 }
 .mm-related-title {
-  margin: 0 1.5rem 1.5rem;
+  margin: 0 var(--mm-margin) 1.5rem;
   font-size: 1.6rem;
   font-weight: 400;
   color: var(--mm-fg);
@@ -210,7 +208,7 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 2rem;
-  margin: 4rem 1.5rem 6rem;
+  margin: 4rem var(--mm-margin) 6rem;
   padding-top: 2rem;
   border-top: 1px solid var(--mm-border);
 }
@@ -233,3 +231,55 @@
   color: var(--mm-fg);
 }
 .mm-pager-link:hover .mm-pager-title { text-decoration: underline; }
+
+/* ==========================================================================
+   Responsive — tablet (<=1024px), mobile (<=768px), small mobile (<=480px).
+   --mm-margin/--mm-rail are redeclared in home.css per breakpoint; the
+   rules below only touch what's specific to the detail-page layout.
+   ========================================================================== */
+
+/* ---- Tablet ---- */
+@media (max-width: 1024px) {
+  .mm-pd-columns { gap: 3%; }
+  .mm-pd-media { flex-basis: 44%; }
+}
+
+/* ---- Mobile: stack columns, info first, sticky off ---- */
+@media (max-width: 768px) {
+  .mm-pd-columns {
+    flex-direction: column;
+    gap: 2rem;
+    padding-bottom: 3rem;
+  }
+  .mm-pd-info {
+    order: -1;
+    position: static;
+    top: auto;
+  }
+  .mm-pd-media { flex-basis: auto; width: 100%; }
+
+  .mm-pd-title { font-size: 1.7rem; }
+  .mm-pd-intro { font-size: 1rem; }
+
+  .mm-related { padding-top: 3rem; }
+  .mm-related-title { font-size: 1.3rem; margin-bottom: 1rem; }
+
+  .mm-pager {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 3rem var(--mm-margin) 4rem;
+  }
+  .mm-pager-next {
+    margin-left: 0;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+/* ---- Small mobile ---- */
+@media (max-width: 480px) {
+  .mm-pd-title { font-size: 1.5rem; }
+  .mm-pd-meta div { gap: 1rem; }
+  .mm-pd-meta dt { flex-basis: 5rem; }
+}
