@@ -91,8 +91,13 @@
   font-size: .85rem;
   color: var(--mm-muted);
 }
-.mm-pd-breadcrumb a { color: var(--mm-muted); }
+.mm-pd-breadcrumb a { position: relative; color: var(--mm-muted); }
 .mm-pd-breadcrumb a:hover { color: var(--mm-fg); }
+.mm-pd-breadcrumb a::after {
+  content: "";
+  position: absolute;
+  inset: -10px -2px;
+}
 .mm-pd-breadcrumb span { margin: 0 .35rem; }
 .mm-pd-breadcrumb .is-current { color: var(--mm-fg); }
 .mm-pd-date {
