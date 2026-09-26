@@ -164,6 +164,12 @@
   color: var(--mm-fg);
   margin-bottom: 1.5rem;
 }
+/* Bilingual intro (KO + EN) grouped as one block, clearly separated
+   from the body. Pages with a single intro don't use this wrapper. */
+.mm-pd-lead { margin-bottom: 2.5rem; }
+.mm-pd-lead .mm-pd-intro { margin-bottom: .75rem; }
+.mm-pd-lead .mm-pd-intro:last-child { margin-bottom: 0; }
+
 .mm-pd-body p {
   font-size: 1rem;
   line-height: 1.7;
